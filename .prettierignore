@@ -1,0 +1,5 @@
+.deploy
+.meteor
+node_modules
+private
+public
