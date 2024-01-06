@@ -69,7 +69,7 @@ run()
 
 ### Hatalar ve İstekler
 
-Kullanım sırasında yaşadığınız sorunları veya isteklerinizi https://github.com/Sergeant61/parasut-api-v4/issues iş kaydı açabilir veya https://recepozen.com'dan bildirebilirsiniz.
+Kullanım sırasında yaşadığınız sorunları veya isteklerinizi https://github.com/Sergeant61/parasut-api-v4/issues iş kaydı açabilir veya https://recepozen.com 'dan bildirebilirsiniz.
 
 ### Destek olmak isteyenler
 
