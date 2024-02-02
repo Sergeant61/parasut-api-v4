@@ -14,7 +14,7 @@ class Contacts {
     return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/contacts`, request)
   }
 
-  async create({ data, queryParams: params }: ApiRequest<any, any>) {
+  async create({ data, queryParams: params }: ApiRequest<ContactData, any>) {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -35,10 +35,11 @@ class Contacts {
     return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/contacts/${id}`, request)
   }
 
-  async edit(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async edit(id: string, { data, queryParams: params }: ApiRequest<ContactData, any>) {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
+      data,
       params,
     }
 
