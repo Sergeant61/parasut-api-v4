@@ -116,6 +116,16 @@ class SalesInvoices {
 
     return this.parasut.send<SalesInvoiceActionResponse>('PATCH', `${this.parasut.options.firmaNo}/sales_invoices/${id}/convert_to_invoice`, request)
   }
+
+  async showPdf(id: string, { queryParams: params }: ApiRequest<void, SalesInvoiceQueryParams>): Promise<ApiResponse<TrackableJobResponse>> {
+    const request: IApiSendOptions = {
+      isV4: true,
+      isAuth: true,
+      params,
+    }
+
+    return this.parasut.send<TrackableJobResponse>('POST', `${this.parasut.options.firmaNo}/sales_invoices/${id}/pdf`, request)
+  }
 }
 
 export default SalesInvoices

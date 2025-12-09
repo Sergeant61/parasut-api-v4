@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2025-12-09
+
+### Added
+- **Sales Offers (Teklif) Modülü** - Yeni modül eklendi
+  - `index()` - Teklif listesi
+  - `create()` - Yeni teklif oluşturma
+  - `show()` - Teklif detayı
+  - `edit()` - Teklif güncelleme
+  - `delete()` - Teklif silme
+  - `showPdf()` - PDF oluşturma
+  - `archive()` - Arşivleme
+  - `unarchive()` - Arşivden çıkarma
+  - `details()` - Detay bilgileri
+  - `updateStatus()` - Durum güncelleme
+  - `sendEmail()` - E-posta gönderme
+- Sales Invoices modülüne `showPdf()` metodu eklendi
+- Webhooks modülüne `index()` metodu eklendi
+
+### Changed
+- Sales Offers modülü için type tanımları eklendi
+
 ## [0.2.0] - 2025-12-09
 
 ### Added

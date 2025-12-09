@@ -3,6 +3,17 @@ import ParasutApiV4 from '../parasut-api-v4'
 class Webhooks {
   constructor(private parasut: ParasutApiV4) {}
 
+  async index({ queryParams: params, pagination }: ApiRequest<void, WebhookQueryParams>): Promise<ApiResponse<WebhookIndexResponse>> {
+    const request: IApiSendOptions = {
+      isV4: true,
+      isAuth: true,
+      params,
+      pagination,
+    }
+
+    return this.parasut.send<WebhookIndexResponse>('GET', `${this.parasut.options.firmaNo}/webhooks`, request)
+  }
+
   async create({ data, queryParams: params }: ApiRequest<WebhookRequest, WebhookQueryParams>): Promise<ApiResponse<WebhookResponse>> {
     const request: IApiSendOptions = {
       isV4: true,

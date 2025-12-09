@@ -18,6 +18,7 @@ import StockUpdates from './module/stock-updates'
 import TrackableJobs from './module/trackable-jobs'
 import PurchaseBills from './module/purchase-bills'
 import SalesInvoices from './module/sales-invoices'
+import SalesOffers from './module/sales-offers'
 import StockMovements from './module/stock-movements'
 import InventoryLevels from './module/inventory-levels'
 import EInvoiceInBoxes from './module/e-invoice-in-boxes'
@@ -42,6 +43,7 @@ class ParasutApiV4 extends Api {
   transactions: Transactions
   trackableJobs: TrackableJobs
   salesInvoices: SalesInvoices
+  salesOffers: SalesOffers
   purchaseBills: PurchaseBills
   stockMovements: StockMovements
   eInvoiceInBoxes: EInvoiceInBoxes
@@ -74,6 +76,7 @@ class ParasutApiV4 extends Api {
     this.trackableJobs = new TrackableJobs(this)
     this.purchaseBills = new PurchaseBills(this)
     this.salesInvoices = new SalesInvoices(this)
+    this.salesOffers = new SalesOffers(this)
     this.stockMovements = new StockMovements(this)
     this.eInvoiceInBoxes = new EInvoiceInBoxes(this)
     this.inventoryLevels = new InventoryLevels(this)
