@@ -3,7 +3,7 @@ import ParasutApiV4 from '../parasut-api-v4'
 class Employees {
   constructor(private parasut: ParasutApiV4) {}
 
-  async index({ queryParams: params, pagination }: ApiRequest<any, any>) {
+  async index({ queryParams: params, pagination }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<EmployeeIndexResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -11,10 +11,10 @@ class Employees {
       pagination,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/employees`, request)
+    return this.parasut.send<EmployeeIndexResponse>('GET', `${this.parasut.options.firmaNo}/employees`, request)
   }
 
-  async create({ data, queryParams: params }: ApiRequest<SalesInvoiceRequest, any>) {
+  async create({ data, queryParams: params }: ApiRequest<EmployeeRequest, EmployeeQueryParams>): Promise<ApiResponse<EmployeeResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -22,30 +22,31 @@ class Employees {
       params,
     }
 
-    return this.parasut.send<SalesInvoiceResponse>('POST', `${this.parasut.options.firmaNo}/employees`, request)
+    return this.parasut.send<EmployeeResponse>('POST', `${this.parasut.options.firmaNo}/employees`, request)
   }
 
-  async show(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async show(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<EmployeeResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/employees/${id}`, request)
+    return this.parasut.send<EmployeeResponse>('GET', `${this.parasut.options.firmaNo}/employees/${id}`, request)
   }
 
-  async edit(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async edit(id: string, { data, queryParams: params }: ApiRequest<EmployeeRequest, EmployeeQueryParams>): Promise<ApiResponse<EmployeeResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
+      data,
       params,
     }
 
-    return this.parasut.send<any>('PUT', `${this.parasut.options.firmaNo}/employees/${id}`, request)
+    return this.parasut.send<EmployeeResponse>('PUT', `${this.parasut.options.firmaNo}/employees/${id}`, request)
   }
 
-  async delete(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async delete(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<void>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -55,7 +56,7 @@ class Employees {
     return this.parasut.send<void>('DELETE', `${this.parasut.options.firmaNo}/employees/${id}`, request)
   }
 
-  async archive(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async archive(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -65,7 +66,7 @@ class Employees {
     return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/employees/${id}/archive`, request)
   }
 
-  async unarchive(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async unarchive(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,

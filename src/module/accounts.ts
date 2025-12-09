@@ -3,7 +3,7 @@ import ParasutApiV4 from '../parasut-api-v4'
 class Accounts {
   constructor(private parasut: ParasutApiV4) {}
 
-  async index({ queryParams: params, pagination }: ApiRequest<any, any>) {
+  async index({ queryParams: params, pagination }: ApiRequest<void, AccountQueryParams>): Promise<ApiResponse<AccountIndexResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -11,10 +11,10 @@ class Accounts {
       pagination,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/accounts`, request)
+    return this.parasut.send<AccountIndexResponse>('GET', `${this.parasut.options.firmaNo}/accounts`, request)
   }
 
-  async create({ data, queryParams: params }: ApiRequest<any, any>) {
+  async create({ data, queryParams: params }: ApiRequest<AccountRequest, AccountQueryParams>): Promise<ApiResponse<AccountResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -22,40 +22,41 @@ class Accounts {
       params,
     }
 
-    return this.parasut.send<any>('POST', `${this.parasut.options.firmaNo}/accounts`, request)
+    return this.parasut.send<AccountResponse>('POST', `${this.parasut.options.firmaNo}/accounts`, request)
   }
 
-  async show(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async show(id: string, { queryParams: params }: ApiRequest<void, AccountQueryParams>): Promise<ApiResponse<AccountResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
+    return this.parasut.send<AccountResponse>('GET', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
   }
 
-  async edit(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async edit(id: string, { data, queryParams: params }: ApiRequest<AccountRequest, AccountQueryParams>): Promise<ApiResponse<AccountResponse>> {
+    const request: IApiSendOptions = {
+      isV4: true,
+      isAuth: true,
+      data,
+      params,
+    }
+
+    return this.parasut.send<AccountResponse>('PUT', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
+  }
+
+  async delete(id: string, { queryParams: params }: ApiRequest<void, AccountQueryParams>): Promise<ApiResponse<void>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PUT', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
+    return this.parasut.send<void>('DELETE', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
   }
 
-  async delete(id: string, { queryParams: params }: ApiRequest<any, any>) {
-    const request: IApiSendOptions = {
-      isV4: true,
-      isAuth: true,
-      params,
-    }
-
-    return this.parasut.send<any>('DELETE', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
-  }
-
-  async transactions(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async transactions(id: string, { queryParams: params }: ApiRequest<void, AccountQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -65,20 +66,22 @@ class Accounts {
     return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/accounts/${id}/transactions`, request)
   }
 
-  async debitTransactions(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async debitTransactions(id: string, { data, queryParams: params }: ApiRequest<AccountTransactionRequest, AccountQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
+      data,
       params,
     }
 
     return this.parasut.send<any>('POST', `${this.parasut.options.firmaNo}/accounts/${id}/debit_transactions`, request)
   }
 
-  async creditTransactions(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async creditTransactions(id: string, { data, queryParams: params }: ApiRequest<AccountTransactionRequest, AccountQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
+      data,
       params,
     }
 

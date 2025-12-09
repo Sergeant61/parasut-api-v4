@@ -3,7 +3,7 @@ import ParasutApiV4 from '../parasut-api-v4'
 class BankFees {
   constructor(private parasut: ParasutApiV4) {}
 
-  async create({ data, queryParams: params }: ApiRequest<SalesInvoiceRequest, any>) {
+  async create({ data, queryParams: params }: ApiRequest<BankFeeRequest, BankFeeQueryParams>): Promise<ApiResponse<BankFeeResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -11,30 +11,31 @@ class BankFees {
       params,
     }
 
-    return this.parasut.send<SalesInvoiceResponse>('POST', `${this.parasut.options.firmaNo}/bank_fees`, request)
+    return this.parasut.send<BankFeeResponse>('POST', `${this.parasut.options.firmaNo}/bank_fees`, request)
   }
 
-  async show(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async show(id: string, { queryParams: params }: ApiRequest<void, BankFeeQueryParams>): Promise<ApiResponse<BankFeeResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/bank_fees/${id}`, request)
+    return this.parasut.send<BankFeeResponse>('GET', `${this.parasut.options.firmaNo}/bank_fees/${id}`, request)
   }
 
-  async edit(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async edit(id: string, { data, queryParams: params }: ApiRequest<BankFeeRequest, BankFeeQueryParams>): Promise<ApiResponse<BankFeeResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
+      data,
       params,
     }
 
-    return this.parasut.send<any>('PUT', `${this.parasut.options.firmaNo}/bank_fees/${id}`, request)
+    return this.parasut.send<BankFeeResponse>('PUT', `${this.parasut.options.firmaNo}/bank_fees/${id}`, request)
   }
 
-  async delete(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async delete(id: string, { queryParams: params }: ApiRequest<void, BankFeeQueryParams>): Promise<ApiResponse<void>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -44,7 +45,7 @@ class BankFees {
     return this.parasut.send<void>('DELETE', `${this.parasut.options.firmaNo}/bank_fees/${id}`, request)
   }
 
-  async archive(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async archive(id: string, { queryParams: params }: ApiRequest<void, BankFeeQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -54,7 +55,7 @@ class BankFees {
     return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/bank_fees/${id}/archive`, request)
   }
 
-  async unarchive(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async unarchive(id: string, { queryParams: params }: ApiRequest<void, BankFeeQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -64,7 +65,7 @@ class BankFees {
     return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/bank_fees/${id}/unarchive`, request)
   }
 
-  async pay(id: string, { queryParams: params }: ApiRequest<any, any>) {
+  async pay(id: string, { queryParams: params }: ApiRequest<void, BankFeeQueryParams>): Promise<ApiResponse<any>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
