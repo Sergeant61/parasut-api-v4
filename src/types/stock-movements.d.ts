@@ -53,4 +53,3 @@ type StockMovementQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

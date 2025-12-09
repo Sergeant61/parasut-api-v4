@@ -56,4 +56,3 @@ type StockUpdateQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

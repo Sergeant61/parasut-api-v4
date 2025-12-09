@@ -56,17 +56,17 @@ class Accounts {
     return this.parasut.send<void>('DELETE', `${this.parasut.options.firmaNo}/accounts/${id}`, request)
   }
 
-  async transactions(id: string, { queryParams: params }: ApiRequest<void, AccountQueryParams>): Promise<ApiResponse<any>> {
+  async transactions(id: string, { queryParams: params }: ApiRequest<void, AccountQueryParams>): Promise<ApiResponse<AccountTransactionsResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/accounts/${id}/transactions`, request)
+    return this.parasut.send<AccountTransactionsResponse>('GET', `${this.parasut.options.firmaNo}/accounts/${id}/transactions`, request)
   }
 
-  async debitTransactions(id: string, { data, queryParams: params }: ApiRequest<AccountTransactionRequest, AccountQueryParams>): Promise<ApiResponse<any>> {
+  async debitTransactions(id: string, { data, queryParams: params }: ApiRequest<AccountTransactionRequest, AccountQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -74,10 +74,10 @@ class Accounts {
       params,
     }
 
-    return this.parasut.send<any>('POST', `${this.parasut.options.firmaNo}/accounts/${id}/debit_transactions`, request)
+    return this.parasut.send<ActionResponse>('POST', `${this.parasut.options.firmaNo}/accounts/${id}/debit_transactions`, request)
   }
 
-  async creditTransactions(id: string, { data, queryParams: params }: ApiRequest<AccountTransactionRequest, AccountQueryParams>): Promise<ApiResponse<any>> {
+  async creditTransactions(id: string, { data, queryParams: params }: ApiRequest<AccountTransactionRequest, AccountQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -85,7 +85,7 @@ class Accounts {
       params,
     }
 
-    return this.parasut.send<any>('POST', `${this.parasut.options.firmaNo}/accounts/${id}/credit_transactions`, request)
+    return this.parasut.send<ActionResponse>('POST', `${this.parasut.options.firmaNo}/accounts/${id}/credit_transactions`, request)
   }
 }
 

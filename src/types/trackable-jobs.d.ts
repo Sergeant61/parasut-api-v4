@@ -33,4 +33,3 @@ type TrackableJobQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

@@ -52,4 +52,3 @@ type InventoryLevelQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

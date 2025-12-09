@@ -101,4 +101,3 @@ type ProductQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

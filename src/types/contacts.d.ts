@@ -57,3 +57,104 @@ type ContactData = {
         };
     };
 }
+
+type ContactResponse = {
+    data: {
+        id: string;
+        type: string;
+        attributes: Attributes;
+        relationships?: {
+            category?: {
+                data?: {
+                    id: string;
+                    type: string;
+                };
+            };
+            contact_portal?: {
+                data?: {
+                    id: string;
+                    type: string;
+                };
+            };
+            contact_people?: {
+                data?: Array<{
+                    id: string;
+                    type: string;
+                }>;
+            };
+        };
+    };
+    included?: Array<{
+        id: string;
+        type: string;
+        attributes: Record<string, any>;
+        relationships?: Record<string, any>;
+    }>;
+}
+
+type ContactIndexResponse = {
+    data: Array<{
+        id: string;
+        type: string;
+        attributes: Attributes;
+        relationships?: {
+            category?: {
+                data?: {
+                    id: string;
+                    type: string;
+                };
+            };
+            contact_portal?: {
+                data?: {
+                    id: string;
+                    type: string;
+                };
+            };
+            contact_people?: {
+                data?: Array<{
+                    id: string;
+                    type: string;
+                }>;
+            };
+        };
+    }>;
+    included?: Array<{
+        id: string;
+        type: string;
+        attributes: Record<string, any>;
+        relationships?: Record<string, any>;
+    }>;
+    meta?: {
+        current_page?: number;
+        total_pages?: number;
+        total_count?: number;
+    };
+}
+
+type ContactQueryParams = {
+    sort?: string;
+    filter?: Record<string, any>;
+    include?: string;
+}
+
+type ContactDebitTransactionRequest = {
+    data: {
+        description?: string;
+        transaction_date?: string;
+        amount?: number;
+        currency?: string;
+        exchange_rate?: number;
+        debit_account_id?: string;
+    };
+}
+
+type ContactCreditTransactionRequest = {
+    data: {
+        description?: string;
+        transaction_date?: string;
+        amount?: number;
+        currency?: string;
+        exchange_rate?: number;
+        credit_account_id?: string;
+    };
+}

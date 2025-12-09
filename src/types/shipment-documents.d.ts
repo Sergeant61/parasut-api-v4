@@ -57,4 +57,3 @@ type ShipmentDocumentQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

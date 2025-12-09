@@ -56,24 +56,24 @@ class Employees {
     return this.parasut.send<void>('DELETE', `${this.parasut.options.firmaNo}/employees/${id}`, request)
   }
 
-  async archive(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<any>> {
+  async archive(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/employees/${id}/archive`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/employees/${id}/archive`, request)
   }
 
-  async unarchive(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<any>> {
+  async unarchive(id: string, { queryParams: params }: ApiRequest<void, EmployeeQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/employees/${id}/unarchive`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/employees/${id}/unarchive`, request)
   }
 }
 

@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+import axios from 'axios'
 import ParasutApiV4 from './parasut-api-v4'
 
 // Mock axios
 vi.mock('axios')
-const axios = await import('axios')
-const mockedAxios = vi.mocked(axios.default)
+const mockedAxios = vi.mocked(axios)
 
 describe('ParasutApiV4', () => {
   const mockOptions: IParasutApiV4Options = {

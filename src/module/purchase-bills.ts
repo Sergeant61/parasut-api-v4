@@ -78,7 +78,7 @@ class PurchaseBills {
     return this.parasut.send<PurchaseBillResponse>('PUT', `${this.parasut.options.firmaNo}/purchase_bills/${id}#detailed`, request)
   }
 
-  async pay(id: string, { data, queryParams: params }: ApiRequest<PurchaseBillPaymentRequest, PurchaseBillQueryParams>): Promise<ApiResponse<any>> {
+  async pay(id: string, { data, queryParams: params }: ApiRequest<PurchaseBillPaymentRequest, PurchaseBillQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
@@ -86,47 +86,47 @@ class PurchaseBills {
       params,
     }
 
-    return this.parasut.send<any>('POST', `${this.parasut.options.firmaNo}/purchase_bills/${id}/payments`, request)
+    return this.parasut.send<ActionResponse>('POST', `${this.parasut.options.firmaNo}/purchase_bills/${id}/payments`, request)
   }
 
-  async cancel(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<any>> {
+  async cancel(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('DELETE', `${this.parasut.options.firmaNo}/purchase_bills/${id}/cancel`, request)
+    return this.parasut.send<ActionResponse>('DELETE', `${this.parasut.options.firmaNo}/purchase_bills/${id}/cancel`, request)
   }
 
-  async recover(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<any>> {
+  async recover(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/purchase_bills/${id}/recover`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/purchase_bills/${id}/recover`, request)
   }
 
-  async archive(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<any>> {
+  async archive(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/purchase_bills/${id}/archive`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/purchase_bills/${id}/archive`, request)
   }
 
-  async unarchive(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<any>> {
+  async unarchive(id: string, { queryParams: params }: ApiRequest<void, PurchaseBillQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/purchase_bills/${id}/unarchive`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/purchase_bills/${id}/unarchive`, request)
   }
 }
 

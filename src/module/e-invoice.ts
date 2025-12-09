@@ -24,14 +24,14 @@ class EInvoices {
     return this.parasut.send<EInvoiceResponse>('GET', `${this.parasut.options.firmaNo}/e_invoices/${id}`, request)
   }
 
-  async showPdf(id: string, { queryParams: params }: ApiRequest<void, EInvoiceQueryParams>): Promise<ApiResponse<any>> {
+  async showPdf(id: string, { queryParams: params }: ApiRequest<void, EInvoiceQueryParams>): Promise<ApiResponse<PdfResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/e_invoices/${id}/pdf`, request)
+    return this.parasut.send<PdfResponse>('GET', `${this.parasut.options.firmaNo}/e_invoices/${id}/pdf`, request)
   }
 }
 

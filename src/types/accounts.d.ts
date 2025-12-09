@@ -99,3 +99,42 @@ type AccountTransactionRequest = {
     credit_account_id?: string
   }
 }
+
+type AccountTransactionsResponse = {
+  data: Array<{
+    id: string
+    type: string
+    attributes: {
+      description?: string
+      transaction_date?: string
+      amount?: number
+      currency?: string
+      exchange_rate?: number
+    }
+    relationships?: {
+      debit_account?: {
+        data?: {
+          id: string
+          type: string
+        }
+      }
+      credit_account?: {
+        data?: {
+          id: string
+          type: string
+        }
+      }
+    }
+  }>
+  included?: Array<{
+    id: string
+    type: string
+    attributes: Record<string, any>
+    relationships?: Record<string, any>
+  }>
+  meta?: {
+    current_page?: number
+    total_pages?: number
+    total_count?: number
+  }
+}

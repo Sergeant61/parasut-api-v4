@@ -58,4 +58,3 @@ type BankFeeQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

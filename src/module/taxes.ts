@@ -56,34 +56,34 @@ class Taxes {
     return this.parasut.send<void>('DELETE', `${this.parasut.options.firmaNo}/taxes/${id}`, request)
   }
 
-  async archive(id: string, { queryParams: params }: ApiRequest<void, TaxQueryParams>): Promise<ApiResponse<any>> {
+  async archive(id: string, { queryParams: params }: ApiRequest<void, TaxQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/taxes/${id}/archive`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/taxes/${id}/archive`, request)
   }
 
-  async unarchive(id: string, { queryParams: params }: ApiRequest<void, TaxQueryParams>): Promise<ApiResponse<any>> {
+  async unarchive(id: string, { queryParams: params }: ApiRequest<void, TaxQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('PATCH', `${this.parasut.options.firmaNo}/taxes/${id}/unarchive`, request)
+    return this.parasut.send<ActionResponse>('PATCH', `${this.parasut.options.firmaNo}/taxes/${id}/unarchive`, request)
   }
 
-  async pay(id: string, { queryParams: params }: ApiRequest<void, TaxQueryParams>): Promise<ApiResponse<any>> {
+  async pay(id: string, { queryParams: params }: ApiRequest<void, TaxQueryParams>): Promise<ApiResponse<ActionResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('POST', `${this.parasut.options.firmaNo}/taxes/${id}/payments`, request)
+    return this.parasut.send<ActionResponse>('POST', `${this.parasut.options.firmaNo}/taxes/${id}/payments`, request)
   }
 }
 

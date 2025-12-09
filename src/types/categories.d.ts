@@ -56,4 +56,3 @@ type CategoryQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

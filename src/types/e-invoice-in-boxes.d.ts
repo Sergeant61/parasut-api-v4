@@ -52,4 +52,3 @@ type EInvoiceInBoxQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

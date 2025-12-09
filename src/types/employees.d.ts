@@ -57,4 +57,3 @@ type EmployeeQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

@@ -55,4 +55,3 @@ type WarehouseQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

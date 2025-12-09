@@ -58,4 +58,3 @@ type SalaryQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

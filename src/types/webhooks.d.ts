@@ -57,4 +57,3 @@ type WebhookQueryParams = {
   filter?: Record<string, any>
   include?: string
 }
-

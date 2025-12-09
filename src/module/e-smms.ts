@@ -24,14 +24,14 @@ class ESmms {
     return this.parasut.send<ESmmsResponse>('GET', `${this.parasut.options.firmaNo}/e_smms/${id}`, request)
   }
 
-  async showPdf(id: string, { queryParams: params }: ApiRequest<void, ESmmsQueryParams>): Promise<ApiResponse<any>> {
+  async showPdf(id: string, { queryParams: params }: ApiRequest<void, ESmmsQueryParams>): Promise<ApiResponse<PdfResponse>> {
     const request: IApiSendOptions = {
       isV4: true,
       isAuth: true,
       params,
     }
 
-    return this.parasut.send<any>('GET', `${this.parasut.options.firmaNo}/e_smms/${id}/pdf`, request)
+    return this.parasut.send<PdfResponse>('GET', `${this.parasut.options.firmaNo}/e_smms/${id}/pdf`, request)
   }
 }
 
